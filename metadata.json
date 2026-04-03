@@ -1,0 +1,7 @@
+{
+  "name": "STRO BARBER SHOP",
+  "description": "Premium barbershop offering a modern and exclusive experience with professional barbers.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
