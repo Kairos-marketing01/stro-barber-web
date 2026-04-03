@@ -35,7 +35,6 @@ const Navbar = () => {
     { name: 'Inicio', href: '#inicio' },
     { name: 'Visión', href: '#vision' },
     { name: 'Servicios', href: '#servicios' },
-    { name: 'Galería', href: '#galeria' },
     { name: 'Sucursales', href: '#sucursales' },
     { name: 'Reseñas', href: '#resenas' },
   ];
@@ -239,7 +238,7 @@ const Services = () => {
     {
       title: "Corte de Cabello",
       desc: "Corte clásico o moderno adaptado a tu fisionomía.",
-      img: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=800"
+      img: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=800"
     },
     {
       title: "Barba y Perfilado",
@@ -249,12 +248,12 @@ const Services = () => {
     {
       title: "Fade / Degradados",
       desc: "Degradados perfectos: Skin Fade, Taper, Burst Fade.",
-      img: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=800"
+      img: "https://images.unsplash.com/photo-1532710093739-9470acff878f?auto=format&fit=crop&q=80&w=800"
     },
     {
       title: "Arreglo Completo",
       desc: "Corte premium + Barba + Lavado y Peinado.",
-      img: "https://images.unsplash.com/photo-1599351431247-f10b21893982?auto=format&fit=crop&q=80&w=800"
+      img: "https://images.unsplash.com/photo-1512690196252-741ef294f445?auto=format&fit=crop&q=80&w=800"
     }
   ];
 
@@ -272,81 +271,23 @@ const Services = () => {
             <motion.div
               key={i}
               whileHover={{ y: -10 }}
-              className="group bg-premium-gray rounded-2xl overflow-hidden border border-white/5 hover:border-gold/30 transition-all"
+              className="group bg-premium-gray rounded-2xl overflow-hidden border border-white/5 hover:border-gold/30 transition-all p-8 flex flex-col justify-between"
             >
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={s.img} 
-                  alt={s.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <h4 className="text-xl font-bold">{s.title}</h4>
+              <div>
+                <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-6 group-hover:bg-gold transition-colors duration-300">
+                  <Scissors className="text-gold group-hover:text-premium-black w-6 h-6" />
                 </div>
-                <p className="text-gray-500 text-sm mb-6">{s.desc}</p>
-                <a 
-                  href="https://wa.me/5073912072"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-3 rounded-lg border border-white/10 text-sm font-bold hover:bg-gold hover:text-premium-black transition-all block text-center"
-                >
-                  RESERVAR
-                </a>
+                <h4 className="text-2xl font-bold mb-3">{s.title}</h4>
+                <p className="text-gray-500 text-sm mb-8 leading-relaxed">{s.desc}</p>
               </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const Gallery = () => {
-  const images = [
-    "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1621605815841-aa88c82b0281?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1599351431247-f10b21893982?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1622286332618-f280219953f1?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1593702295094-282582f978ad?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1512690196252-741ef294f445?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1592647425447-11e1f3fdc405?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1532710093739-9470acff878f?auto=format&fit=crop&q=80&w=800",
-  ];
-
-  return (
-    <section id="galeria" className="py-24 px-6 bg-premium-gray">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-          <div>
-            <h2 className="text-gold font-bold tracking-widest text-sm mb-4 uppercase">Galería</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-black">NUESTROS TRABAJOS</h3>
-          </div>
-          <p className="text-gray-500 max-w-md">Echa un vistazo a algunos de los estilos y transformaciones que hemos realizado recientemente.</p>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {images.map((img, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="aspect-square rounded-xl overflow-hidden cursor-pointer group relative"
-            >
-              <img 
-                src={img} 
-                alt={`Trabajo ${i}`} 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gold/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <Scissors className="text-white w-10 h-10" />
-              </div>
+              <a 
+                href="https://wa.me/5073912072"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-4 rounded-xl border border-white/10 text-sm font-bold hover:bg-gold hover:text-premium-black transition-all block text-center uppercase tracking-wider"
+              >
+                RESERVAR
+              </a>
             </motion.div>
           ))}
         </div>
@@ -497,7 +438,6 @@ const Footer = () => {
               <li><a href="#inicio" className="hover:text-white transition-colors">Inicio</a></li>
               <li><a href="#vision" className="hover:text-white transition-colors">Nuestra Visión</a></li>
               <li><a href="#servicios" className="hover:text-white transition-colors">Servicios</a></li>
-              <li><a href="#galeria" className="hover:text-white transition-colors">Galería</a></li>
             </ul>
           </div>
 
@@ -561,7 +501,6 @@ export default function App() {
         <Hero />
         <Vision />
         <Services />
-        <Gallery />
         <Reviews />
         <Branches />
       </main>
